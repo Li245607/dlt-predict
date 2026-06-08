@@ -1,0 +1,5 @@
+﻿# *.md
+!大乐透预测_*.md
+# dlt_learn.json (cached by Actions)
+__pycache__/
+*.pyc
