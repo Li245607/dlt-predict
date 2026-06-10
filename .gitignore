@@ -1,5 +1,7 @@
-﻿# *.md
+# Ignore md except predictions
+*.md
 !大乐透预测_*.md
-# dlt_learn.json (cached by Actions)
+# Track learn db
+!dlt_learn.json
 __pycache__/
 *.pyc
