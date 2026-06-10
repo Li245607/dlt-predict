@@ -24,8 +24,9 @@ jobs:
         run: |
           git config user.name "dlt-bot"
           git config user.email "bot@example.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git add dlt_learn.json
-          git diff --cached --quiet || git commit -m "update learn db"
+          git diff --cached --quiet || git commit -m "update learn db [skip ci]"
           git push
       - name: 上传预测报告
         uses: actions/upload-artifact@v4
