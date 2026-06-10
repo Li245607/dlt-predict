@@ -25,7 +25,7 @@ jobs:
           git config user.name "dlt-bot"
           git config user.email "bot@example.com"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git add dlt_learn.json
+          git add dlt_learn.json 大乐透预测_*.md
           git diff --cached --quiet || git commit -m "update learn db [skip ci]"
           git pull --rebase origin main
           git push
