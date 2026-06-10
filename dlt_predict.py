@@ -368,6 +368,10 @@ def main():
         with open(fp, "w", encoding="utf-8") as f:
             f.write(rep)
         print(f"下一期预测已保存: {fn}")
+                        db["last_pred_file"] = fn
+                        save_learn(db)
+    db["last_pred_file"] = fn
+    save_learn(db)
         push_wechat(rep, f"[预测] 第{history2[0]['issue']}期大乐透预测")
         return
     
