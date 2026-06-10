@@ -114,8 +114,8 @@
     "hot_w": 0.4,
     "cold_w": 0.3
   },
-  "total_possible": 140,
-  "total_hits": 36,
+  "total_possible": 175,
+  "total_hits": 45,
   "best_hit": 3,
-  "rounds": 4
+  "rounds": 5
 }
