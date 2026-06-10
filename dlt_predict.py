@@ -4,7 +4,8 @@ import urllib.request, urllib.parse, re, json, random, os, glob
 from datetime import datetime
 from collections import Counter
 
-LEARN_DB = os.path.join(os.getcwd(), "dlt_learn.json")
+WORK_DIR = os.environ.get("GITHUB_WORKSPACE") or os.getcwd()
+LEARN_DB = os.path.join(WORK_DIR, "dlt_learn.json")
 
 def load_learn():
     if os.path.exists(LEARN_DB):
@@ -245,7 +246,7 @@ def push_wechat(report, title="大乐透预测报告"):
         print(f"推送异常: {e}")
 
 def find_pred_file():
-    wd = os.path.dirname(os.path.abspath(__file__))
+    wd = os.environ.get("GITHUB_WORKSPACE") or os.path.dirname(os.path.abspath(__file__))
     files = sorted(glob.glob(os.path.join(wd, "大乐透预测_*.md")), reverse=True)
     return files[0] if files else None
 
@@ -363,7 +364,7 @@ def main():
         predictions = generate_predictions(history2, ch)
         rep = generate_report(history2, ch, zs, oe, bz, predictions)
         fn = f"大乐透预测_第{history2[0]['issue']}期_{datetime.now().strftime('%Y%m%d_%H%M')}.md"
-        fp = os.path.join(os.getcwd(), fn)
+        fp = os.path.join(WORK_DIR, fn)
         with open(fp, "w", encoding="utf-8") as f:
             f.write(rep)
         print(f"下一期预测已保存: {fn}")
